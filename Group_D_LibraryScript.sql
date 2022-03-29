@@ -133,12 +133,20 @@ insert into loans (person_id, book_id, loan_date, return_date, loan_status) valu
 
 select * from loans;
 
+-- avid reader of crime novels:
 select book_title as "Crime Novels" from books where genre = 11;
 
+-- Librarian to see who has overdue books:
 select first_name, last_name, return_date from library_members inner join loans on library_members.id= loans.person_id where loan_status = "not-returned";
 
+-- hip happening library menber to see latest releases:
 select book_title as "Title", author as "Author", release_date as "Release Date" from books order by release_date desc;
 
+-- local council to find out who is using the library:
 select dob, user_cat, gender from personal_details;
+select * from personal_details where dob between "2015-01-01" and "2021-01-01";
 
+-- tech enthusiast to borrow electronic books:
 select book_title as "Title", author as "Author", release_date as "Release Date" from books where class = "electronic";
+
+select * from personal_details where dob between "2015-01-01" and "2021-01-01";
