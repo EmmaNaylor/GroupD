@@ -124,11 +124,11 @@ Insert into loans (person_id, book_id, loan_date, return_date, loan_status) valu
 
 insert into loans (person_id, book_id, loan_date, return_date, loan_status) values (3, 4, "2022-02-13", "2022-02-28", "not-returned");
 
-insert into loans(loan_date, return_date, loan_status, person_id, book_id) values ("2022-01-05", "2022-02-05", "returned", 3, 6), ("2021-11-03", "2021-12-03", "returned", 1, 1), ("2022-01-20", "2022-02-20", "not-returned", 4, 5), ("2019-07-08", "2019-08-08", "returned", 7, 5);
+insert into loans(loan_date, return_date, loan_status, person_id, book_id) values ("2022-01-05", "2022-02-05", "returned", 3, 6), ("2021-11-03", "2021-12-03", "returned", 1, 1), ("2022-01-20", "2022-02-20", "not-returned", 4, 5), ("2019-07-08", "2019-08-08", "returned", 5, 5);
 
-Insert into loans (person_id, book_id, loan_date, return_date, loan_status) values (9, 2, "2022-03-10", "2022-03-31", "not-returned");
+Insert into loans (person_id, book_id, loan_date, return_date, loan_status) values (4, 2, "2022-03-10", "2022-03-31", "not-returned");
 
-insert into loans (person_id, book_id, loan_date, return_date, loan_status) values (13, 3, "2022-03-05", "2022-03-26", "not-returned");
+insert into loans (person_id, book_id, loan_date, return_date, loan_status) values (6, 3, "2022-03-05", "2022-03-26", "not-returned");
 
 
 select * from loans;
