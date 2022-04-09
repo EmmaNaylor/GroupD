@@ -28,7 +28,7 @@ create table library_members (
         foreign key (address) references address(id),
 		foreign key (personal_details) references personal_details(id));
         
-create table genre (
+create table genre_type (
 			id tinyint primary key auto_increment,
         genre varchar(35) not null);   
         
@@ -41,7 +41,7 @@ create table books (
         class enum("Paper", "Electronic"),
         check_out_status enum("In", "Out") DEFAULT "In",
         release_date date,
-        foreign key (genre) references genre(id));
+        foreign key (genre) references genre_type(id));
         
         
 create table loans (
@@ -92,17 +92,17 @@ insert into library_members (first_name, last_name, address, personal_details) v
 
 select * from library_members;
 
-insert into genre (genre) values ("fantasy"), ("sci-fi"), ("travel");
+insert into genre_type (genre) values ("fantasy"), ("sci-fi"), ("travel");
 
-insert into genre (genre) values ("Romance"), ("Biography"), ("Poetry");
+insert into genre_type (genre) values ("Romance"), ("Biography"), ("Poetry");
 
-insert into genre (genre) values ("thriller"),("adventure"),("horror");
+insert into genre_type (genre) values ("thriller"),("adventure"),("horror");
 
-Insert into genre (genre) values ("Historical Fiction"), ("Crime"), ("Cookery");
+Insert into genre_type (genre) values ("Historical Fiction"), ("Crime"), ("Cookery");
 
-insert into genre (genre) values ("travel"),("self-help"),("young adult");
+insert into genre_type (genre) values ("travel"),("self-help"),("young adult");
 
-select * from genre;
+select * from genre_type;
 
 insert into books (book_title, author, form, class, release_date, genre) values ("War and Peace", "Leo Tolstoy", "fiction", "electronic", "1870-03-03", 10);
 
@@ -149,4 +149,24 @@ select * from personal_details where dob between "2015-01-01" and "2021-01-01";
 -- tech enthusiast to borrow electronic books:
 select book_title as "Title", author as "Author", release_date as "Release Date" from books where class = "electronic";
 
-select * from personal_details where dob between "2015-01-01" and "2021-01-01";
+create user 'Library_Member'@'localhost' identified by 'password';
+
+grant select on group_d_library.books to 'Library_Member'@'localhost';
+
+grant select on group_d_library.genre_type to 'Library_Member'@'localhost';
+
+create user 'Staff'@'localhost' identified by 'password';
+
+grant select on group_d_library.* to 'Staff'@'localhost';
+
+grant insert on group_d_library.* to 'Staff'@'localhost';
+
+grant delete on group_d_library.* to 'Staff'@'localhost';
+
+grant create on group_d_library.* to 'Staff'@'locatestinglhost';
+
+create user 'Council'@'localhost' identified by 'password';
+
+grant select on group_d_library.personal_details to 'Council'@'localhost';
+
+
