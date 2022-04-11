@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h3>First match of Genre</h3>
+<div class="error_message">{{message}}</div>
+<div>
+    <p>Title: {{genre.book_title}} by {{genre.author}}</p>
+</div>
+{% endblock %}
+{% block footer_content %}
+<footer>
+     &copy; 2022
+</footer>
+{% endblock %}
+

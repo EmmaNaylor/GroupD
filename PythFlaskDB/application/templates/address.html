@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Page</title>
+</head>
+<body>
+<div>
+{% for address in address %}
+   <p>{{address.first_line}} {{address.second_line}} {{address.town}} {{address.postcode}}</p>
+{% endfor %}
+    <br>
+    {{ message }}
+</div>
+</body>
+</html>
